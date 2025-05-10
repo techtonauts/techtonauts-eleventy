@@ -1,0 +1,22 @@
+{
+  "name": "techtonauts-eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run css:watch & npx @11ty/eleventy --serve",
+    "build": "NODE_ENV=production npm run css:build && npx @11ty/eleventy",
+    "css:build": "npx @tailwindcss/cli -i src/assets/css/style.css -o _site/assets/css/style.css --minify",
+    "css:watch": "npx @tailwindcss/cli -i src/assets/css/style.css -o _site/assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/postcss": "^4.1.6",
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1"
+  }
+}

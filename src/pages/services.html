@@ -1,0 +1,28 @@
+---
+pagination:
+  data: services
+  size: 1
+  alias: service
+permalink: "services/{{ service.slug }}/"
+title: "{{ service.title }}"
+---
+
+{% extends "layouts/base.html" %}
+
+<!-- Main Content -->
+{% block mainContent %}
+
+<!-- Service Detail Section -->
+<section class="py-16 container mx-auto">
+  <h1 class="text-4xl text-center mb-8">{{ service.title }}</h1>
+  <div class="max-w-3xl mx-auto">
+    <p class="text-lg mb-6">{{ service.description }}</p>
+    <div
+      class="bg-[var(--color-techtonaut-navy)] p-6 rounded-lg border border-[var(--color-techtonaut-blue)]"
+    >
+      <h2 class="project-title mb-4">Details</h2>
+      <p>{{ service.details }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

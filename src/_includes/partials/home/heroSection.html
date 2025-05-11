@@ -1,0 +1,18 @@
+<div
+  class="container flex-col items-center justify-center mx-auto my-4 h-full"
+  x-data="{cta: {{ site.mainCTA }}}"
+>
+  <h1 class="text-4xl sm:text-5xl mb-10">
+    Explore the Future with Techtonauts
+  </h1>
+  <p class="text-lg tracking-wide sm:text-xl mb-10">
+    &quot; Launching Your Business into the Tech-Stratosphere &quot;
+  </p>
+  <button
+    class="btn-primary my-3 cursor-pointer"
+    type="button"
+    @click="window.location.href = cta"
+  >
+    Join the Journey
+  </button>
+</div>

@@ -1,0 +1,29 @@
+---
+title: Welcome to Techtonauts
+permalink: /
+---
+
+{% extends "layouts/base.html" %}
+
+<!-- Homepage meta tags -->
+{% block pageMeta %}
+
+<meta name="description" content="Home page" />
+
+{% endblock %}
+
+<!-- Main content block -->
+{% block mainContent %}
+<!-- Hero Section -->
+<section
+  class="techtonaut-gradient py-14 text-center min-h-full flex items-center justify-center"
+>
+  {% include "partials/home/heroSection.html" %}
+</section>
+
+<!-- Services Section -->
+<section class="py-14 container mx-auto px-responsive">
+  {% include "partials/home/serviceSection.html" %}
+</section>
+
+{% endblock %}

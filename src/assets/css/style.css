@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&family=Orbitron:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&family=Oxanium:wght@400;700&display=swap");
 
 @theme {
   --color-techtonaut-navy: oklch(27.84% 0.063 252.09);
@@ -12,12 +13,12 @@
   --color-techtonaut-gray-dark: oklch(66.67% 0 0);
   --font-body: "Roboto", sans-serif;
   --font-heading: "Montserrat", sans-serif;
-  --font-accent: "Orbitron", sans-serif;
+  --font-accent: "Oxanium", sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-[--color-techtonaut-navy] text-white font-[--font-body];
+    @apply bg-(--color-techtonaut-navy) text-white font-body;
   }
   h1,
   h2,
@@ -25,25 +26,25 @@
   h4,
   h5,
   h6 {
-    @apply font-[--font-heading] font-bold;
+    @apply font-heading font-bold;
   }
 }
 
 @layer components {
   .heading {
-    @apply font-[--font-heading] font-bold text-[--color-techtonaut-blue];
+    @apply font-heading font-bold text-(--color-techtonaut-blue);
   }
 
   .accent-text {
-    @apply font-[--font-accent] font-bold text-[--color-techtonaut-purple];
+    @apply font-accent font-bold text-(--color-techtonaut-purple);
   }
 
   .project-title {
-    @apply font-[--font-accent] font-bold text-[--color-techtonaut-blue] text-xl;
+    @apply font-accent font-bold text-(--color-techtonaut-blue) text-xl sm:text-2xl text-center;
   }
 
   .service-card {
-    @apply bg-[--color-techtonaut-navy] p-6 rounded-lg border border-[--color-techtonaut-blue] transition-all duration-300;
+    @apply bg-(--color-techtonaut-navy) p-3 sm:p-4 md:p-6 rounded-lg border border-(--color-techtonaut-blue) transition-all duration-300;
   }
   .service-card:hover {
     @apply scale-105;
@@ -51,19 +52,34 @@
   }
 
   .btn-primary {
-    @apply bg-[--color-techtonaut-blue] text-white px-6 py-3 rounded-full font-[--font-accent] font-bold transition-colors duration-300;
+    @apply bg-(--color-techtonaut-blue) text-white text-lg px-6 py-3 rounded-full font-accent font-bold transition-colors duration-300;
   }
   .btn-primary:hover {
-    @apply bg-[--color-techtonaut-purple];
+    @apply bg-(--color-techtonaut-purple);
+  }
+
+  .btn-secondary {
+    @apply bg-(--color-techtonaut-navy-light) text-white px-3 py-2 rounded-md font-accent font-semibold transition-colors duration-300;
+  }
+  .btn-secondary:hover {
+    @apply bg-(--color-techtonaut-purple-light);
   }
 
   .nav-item {
-    @apply hover:text-[--color-techtonaut-blue] transition-colors duration-300;
+    @apply hover:text-(--color-techtonaut-blue) transition-colors duration-300;
   }
 
   .footer-link {
-    @apply text-[--color-techtonaut-blue] hover:text-[--color-techtonaut-purple] transition-colors duration-300;
+    @apply text-(--color-techtonaut-blue) hover:text-(--color-techtonaut-purple) transition-colors duration-300;
   }
+}
+
+@utility px-responsive {
+  @apply px-4 sm:px-6 md:px-8;
+}
+
+@utility mx-responsive {
+  @apply mx-4 sm:mx-6 md:mx-8;
 }
 
 @utility techtonaut-glow {
@@ -75,11 +91,7 @@
 }
 
 @utility techtonaut-gradient {
-  background: linear-gradient(
-    to bottom,
-    var(--color-techtonaut-navy),
-    var(--color-techtonaut-navy-light)
-  );
+  @apply bg-linear-to-r/hsl from-(--color-techtonaut-navy-light) to-(--color-techtonaut-navy) h-full;
 }
 
 @utility techtonaut-border {

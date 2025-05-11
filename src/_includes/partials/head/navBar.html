@@ -1,0 +1,63 @@
+<div
+  class="container mx-auto px-responsive flex justify-between items-center"
+  x-data="
+  { 
+    isMenuOpen: false ,
+    homePageUrl: '/'
+  }"
+>
+  <!-- Logo -->
+  <img
+    src="/assets/img/logo_no_bg.png"
+    alt="Techtonauts"
+    class="w-52 md:w-60 h-22"
+    x-on:click="window.location.href = homePageUrl"
+  />
+
+  <!-- Hamburger Icon (visible on small screens) -->
+  <button
+    class="pr-2 md:hidden focus:outline-none"
+    aria-label="Toggle menu"
+    x-bind:aria-expanded="isMenuOpen"
+    x-on:click="isMenuOpen = !isMenuOpen"
+  >
+    <i class="fa-solid fa-bars w-8 h-8 text-(--color-techtonaut-blue)"></i>
+  </button>
+
+  <!-- Navigation Links (Desktop) -->
+  <div class="hidden md:flex md:space-x-6" id="nav-links">
+    {% for navItem in site.singleNavOptions %}
+    <a href="{{ navItem.url }}" class="nav-item text-lg md:text-xl">
+      {{ navItem.name }}
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Mobile Menu (visible when hamburger is clicked) -->
+  <div
+    class="fixed top-0 right-0 w-3/5 h-3/5 bg-(--color-techtonaut-navy) shadow-md z-50"
+    x-show="isMenuOpen"
+    x-on:click.outside="isMenuOpen = false"
+  >
+    <div class="flex flex-col items-start space-y-4 py-16 px-6">
+      <button
+        class="absolute top-0 right-0 p-2 m-4"
+        x-on:click="isMenuOpen = false"
+      >
+        <i
+          class="fa-solid fa-x w-6 h-6 text-(--color-techtonaut-blue) hover:text-(--color-techtonaut-purple-light)"
+        ></i>
+      </button>
+
+      {% for navItem in site.singleNavOptions %}
+      <a
+        href="{{ navItem.url }}"
+        class="nav-item text-left text- w-full"
+        x-on:click="isMenuOpen = false"
+      >
+        {{ navItem.name }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,3 +1,25 @@
 {
-  "cssPath": "assets/css"
+  "singleNavOptions": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Services",
+      "url": "/services/"
+    },
+    {
+      "name": "Projects",
+      "url": "/projects/"
+    },
+    {
+      "name": "About",
+      "url": "/about/"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact/"
+    }
+  ],
+  "mainCTA": "/contact/"
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- prettier-ignore -->
+    {% block pageMeta %}
+    <!-- Page specific meta tags block -->
+    {% endblock %}
+
+    <title>Techtonauts | {{ title }}</title>
+
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&family=Oxanium:wght@400;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/76c52a80ca.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="/assets/js/main.js"></script>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="flex py-2 bg-(--color-techtonaut-navy) w-full shadow-md sticky top-0"
+    >
+      {% include "partials/head/navBar.html" %}
+    </nav>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      {% block mainContent %}
+      <!-- Page specific content -->
+      {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center">
+      {% include "partials/footer.html" %}
+    </footer>
+
+    <!-- prettier-ignore -->
+
+    {% block scripts %}
+      
+    {% endblock %}
+  </body>
+</html>
